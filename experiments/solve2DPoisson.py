@@ -10,8 +10,8 @@ import os
 from tqdm import tqdm
 
 #Import the fractional laplacian operator
-from frac_laplacian_autodiff import compute_general_laplacian
-from dynamic_caputo_full import compute_caputo_full # Still needed for time derivative
+from cfpinns_framework.frac_laplacian_autodiff import compute_general_laplacian
+from cfpinns_framework.dynamic_caputo_full import compute_caputo_full # Still needed for time derivative
 
 # --- 1. Define the problem & PINN structure ---
 

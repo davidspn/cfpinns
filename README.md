@@ -17,33 +17,46 @@ We conclude that the cfPINN is a viable alternative to fPINNs, offering a differ
 
 ## Repository Structure
 
-The repository is organized into a core framework and experiment scripts:
+The repository is organized into a core framework package and a directory for experiment scripts.
 
-### Core Framework
+### Core Framework (`cfpinns_framework/`)
+This directory contains the reusable modules that form the cfPINN library:
 *   `pinn_framework.py`: Contains the basic building blocks for the PINN, including the MLP architecture and the training step logic.
 *   `dynamic_caputo_full.py`: The generalized, JIT-compatible implementation of the improved conformable Caputo-type derivative for any arbitrary order $\alpha > 0$.
 *   `frac_laplacian_autodiff.py`: The high-performance implementation of the multi-dimensional fractional Laplacian surrogate, based on the directional conformable derivative.
 
-### Numerical Experiments
-The following scripts reproduce the results presented in the thesis:
-*   `1D_IVP_fixed_alpha.py`: Solves the 1D Fractional IVP (forward problem) with a fixed fractional order to demonstrate the surrogate modeling error.
-*   `1D_IVP_learnable_alpha.py`: Solves the 1D Fractional IVP (forward problem) by learning an effective fractional order from sparse data.
+### Numerical Experiments (`experiments/`)
+This directory contains the scripts used to reproduce the results presented in the thesis:
+*   `1D_IVP_fixed_alpha.py`: Solves the 1D Fractional IVP with a fixed fractional order.
+*   `1D_IVP_learnable_alpha.py`: Solves the 1D Fractional IVP by learning an effective fractional order from sparse data.
 *   `1D_Poisson.py`: Solves the 1D Fractional Poisson problem by learning an effective fractional order.
 *   `solve2DPoisson.py`: Solves the 2D time-dependent fractional advection-diffusion problem by learning an effective spatial order.
 
-## Requirements
+## Installation
 
-The code is built using JAX and Flax. 
-To install all requirements run:
-```bash
-pip install -r requirements.txt
-```
+It is recommended to use a virtual environment.
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/davidspn/cfpinns.git
+    cd cfpinns
+    ```
+
+2.  **Install the dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+**Note:** The default installation will use the CPU version of JAX. If you have a compatible NVIDIA GPU, please follow the [official JAX installation instructions](https://github.com/google/jax#installation) to install JAX with CUDA support for significantly faster performance.
 
 ## How to Run an Experiment
 
-To run an experiment, simply execute the desired Python script. For example, to run the 1D IVP experiment with a learnable alpha:
+All experiment scripts must be run **as modules** from the **root directory** of the project. This ensures that the framework package (`cfpinns_framework`) is correctly imported.
+
+For example, to run the 1D IVP experiment with a learnable alpha:
 
 ```bash
-python 1D_IVP_learnable_alpha.py
+python -m experiments.1D_IVP_learnable_alpha
 ```
 
+The scripts will perform the training and save the resulting plots to a plots/ directory.

@@ -8,8 +8,8 @@ from flax.training import train_state
 import optax
 
 # Import from our framework
-from pinn_framework import MLP, create_pinn_state, train_step
-from dynamic_caputo_operator import compute_caputo_0_to_1
+from cfpinns_framework.pinn_framework import MLP, create_pinn_state, train_step
+from cfpinns_framework.dynamic_caputo_operator import compute_caputo_0_to_1
 
 # --- 1. Define the Problem-Specific Loss Function for the Inverse Problem ---
 def inverse_loss_fn(apply_fn, params, batch, a):

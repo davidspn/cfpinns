@@ -9,8 +9,8 @@ import optax
 import os 
 
 # Import from our framework
-from pinn_framework import MLP, create_pinn_state, train_step
-from dynamic_caputo_full import compute_caputo_full
+from cfpinns_framework.pinn_framework import MLP, create_pinn_state, train_step
+from cfpinns_framework.dynamic_caputo_full import compute_caputo_full
 
 def inverse_loss_fn(apply_fn, params, batch, a, max_n):
     collocation_points, data_x, data_y = batch['physics_points'], batch['data_x'], batch['data_y']

@@ -9,8 +9,8 @@ import optax
 import os
 
 # Import from our framework
-from pinn_framework import MLP, train_step
-from dynamic_caputo_full import compute_caputo_full
+from cfpinns_framework.pinn_framework import MLP, train_step
+from cfpinns_framework.dynamic_caputo_full import compute_caputo_full
 
 # --- 1. Problem Definition  ---
 
