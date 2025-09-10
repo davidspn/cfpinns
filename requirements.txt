@@ -1,0 +1,10 @@
+# Core JAX framework and utilities
+jax
+flax
+optax
+
+# Scientific computing and plotting
+numpy
+scipy
+matplotlib
+tqdm
