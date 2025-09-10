@@ -3,6 +3,8 @@
 This repository contains the JAX implementation for my Master's Thesis, "Conformable Fractional Physics-Informed Neural Networks." It provides the source code for the cfPINN framework, as well as the scripts used to generate the results for all numerical experiments presented in the thesis.
 
 ## Abstract
+Physics-Informed Neural Networks (PINNs) have emerged as a powerful framework for solving integer-order differential equations, but their application to Fractional Differential Equations (FDEs) is challenged by the non-local, integral-based nature of classical fractional operators (e.g., Caputo, Riemann-Liouville), which is incompatible with Automatic Differentiation (AD). The state-of-the-art solution, the Fractional PINN (fPINN), circumvents this issue by using numerical discretization for fractional terms, but this approach introduces discretization error into the loss function and faces scalability limitations in high dimensions.
+
 This thesis proposes a novel, fully differentiable framework: the Conformable Fractional PINN (cfPINN). 
 We leverage the recent improved conformable derivative definition,
 which is local and AD-compatible, to construct a surrogate FDE model that is solved entirely within the PINN architecture. This approach presents a fundamental trade-off: it eliminates the discretization error of fPINNs in exchange for an inherent surrogate modeling error.
@@ -14,7 +16,7 @@ We demonstrate that for forward problems where sparse data from the true non-loc
 the cfPINN can learn an effective fractional order $\hat{\alpha}$ that allows the local model to accurately 
 approximate the non-local dynamics.
 We conclude that the cfPINN is a viable alternative to fPINNs, offering a different set of trade-offs that may be advantageous, particularly for problems where high-dimensional scalability is critical.
-
+	
 ## Repository Structure
 
 The repository is organized into a core framework package and a directory for experiment scripts.
